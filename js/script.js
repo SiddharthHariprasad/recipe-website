@@ -37,12 +37,13 @@ $(document).ready(function(){
 
 		// On first load, show home view
 		// showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(
-			cakesHtml, 
-			function (responseText) {
-				document.querySelector("#main-content").innerHTML = responseText;
-			},
-		false);
+		// $ajaxUtils.sendGetRequest(
+		// 	cakesHtml, 
+		// 	function (responseText) {
+		// 		document.querySelector("#main-content").innerHTML = responseText;
+		// 	},
+        // false);
+        r.loadCakes();
     });
     
     // Load Cakes Index
@@ -69,7 +70,7 @@ $(document).ready(function(){
 
 		// Loop over cakes
 		for (var i = 0; i < cakes.length; i++) {
-			// insert article values
+			// insert cakes values
 			var html = cakesHtml;
 			var cake_id = cakes[i].cake_id;
 			var cake_image = cakes[i].cakes_image;
