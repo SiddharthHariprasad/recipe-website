@@ -18,11 +18,11 @@ $(document).ready(function(){
     };
 
     // Show loading icon inside element identified by 'selector'.
-  	var showLoading = function (selector) {
-	    var html = "<div class='text-center'>";
-	    html += "<img src='images/ajax-loader.gif'></div>";
-	    insertHtml(selector, html);
-    };
+  	// var showLoading = function (selector) {
+	//     var html = "<div class='text-center'>";
+	//     html += "<img src='images/ajax-loader.gif'></div>";
+	//     insertHtml(selector, html);
+    // };
       
     // Return substitute of '{{propName}}'
   	// with propValue in given 'string'
