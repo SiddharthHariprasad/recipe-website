@@ -198,7 +198,7 @@ $(document).ready(function(){
 		for (var i = 0; i < currys.length; i++) {
             if(currys[i].curry_id==curryID){
                 // insert curry values
-                var html = singlecurryHtml;
+                var html = singleCurryHtml;
                 var curry_id = currys[i].curry_id;
                 var curry_title = currys[i].curry_title;
                 var curry_desc = currys[i].curry_desc;
