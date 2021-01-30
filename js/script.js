@@ -7,7 +7,6 @@ $(document).ready(function(){
 (function (global) {
     var r = {};
 
-    var indexHtml = "index.html";
     var homeHtml = "snippets/home.html";
     var cakesHtml = "snippets/cakes.html";
     var cakesUrl = "json/cakes.json";
@@ -38,13 +37,12 @@ $(document).ready(function(){
 
 		// // On first load, show home view
 		// // showLoading("#main-content");
-		// $ajaxUtils.sendGetRequest(
-		// 	homeHtml, 
-		// 	function (responseText) {
-		// 		document.querySelector("#main-content").innerHTML = responseText;
-		// 	},
-        // false);
-        r.loadCakes();
+		$ajaxUtils.sendGetRequest(
+			homeHtml, 
+			function (responseText) {
+				document.querySelector("#main-content").innerHTML = responseText;
+			},
+        false);
     });
     
     // Load Cakes Index
