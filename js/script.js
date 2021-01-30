@@ -65,7 +65,8 @@ $(document).ready(function(){
     
     // Using cakes data and snippets html build cakes view HTML to be inserted into page
 	function buildCakesViewHtml(cakes,cakesHtml) {
-		var finalHTML = "";
+        var finalHTML = "<h2>Cakes</h2>";
+        
 
 		// Loop over cakes
 		for (var i = 0; i < cakes.length; i++) {
