@@ -22,7 +22,7 @@ $(document).ready(function(){
   	// var showLoading = function (selector) {
 	//     var html = "<div class='text-center'>";
 	//     html += "<img src='images/ajax-loader.gif'></div>";
-	//     insertHtml(selector, html);
+	    // insertHtml(selector, html);
     // };
       
     // Return substitute of '{{propName}}'
