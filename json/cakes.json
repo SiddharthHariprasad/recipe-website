@@ -1,8 +1,6 @@
 [
     {
         "cake_id":"1",
-        "cake_image":"curry",
-        "cake_alt":"image of curry",
         "cake_title":"Marble Cake",
         "cake_desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum facere incidunt voluptates cumque eligendi ipsum est sint iusto adipisci, laborum dolores quo cupiditate numquam, eaque, placeat sapiente enim minima aliquam.",
         "cake_ingredients":"<ul><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li></ul>",
@@ -10,8 +8,6 @@
     },
     {
         "cake_id":"2",
-        "cake_image":"pasta",
-        "cake_alt":"image of pasta",
         "cake_title":"Chocolate Cake",
         "cake_desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa tempora voluptate quo, quaerat unde ipsam similique! Odit architecto voluptatibus, incidunt earum quis molestiae veniam cum, inventore itaque, pariatur natus recusandae!",
         "cake_ingredients":"<ul><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li><li>Lorem - 12tsp</li></ul>",

@@ -75,13 +75,9 @@ $(document).ready(function(){
 			// insert cakes values
 			var html = cakesHtml;
 			var cake_id = cakes[i].cake_id;
-			var cake_image = cakes[i].cakes_image;
-            var cake_alt = cakes[i].cake_alt;
             var cake_title = cakes[i].cake_title;
             var cake_desc = cakes[i].cake_desc;
 			html = insertProperty(html,"cake_id",cake_id);
-			html = insertProperty(html,"cake_image",cake_image);
-            html = insertProperty(html,"cake_alt",cake_alt);
             html = insertProperty(html, "cake_title",cake_title);
             html = insertProperty(html,"cake_desc",cake_desc);
 			finalHTML += html;
@@ -118,15 +114,11 @@ $(document).ready(function(){
                 // insert cake values
                 var html = singleCakeHtml;
                 var cake_id = cakes[i].cake_id;
-                var cake_image = cakes[i].cakes_image;
-                var cake_alt = cakes[i].cake_alt;
                 var cake_title = cakes[i].cake_title;
                 var cake_desc = cakes[i].cake_desc;
                 var cake_ingredients = cakes[i].cake_ingredients;
                 var cake_recipe = cakes[i].cake_recipe;
                 html = insertProperty(html,"cake_id",cake_id);
-                html = insertProperty(html,"cake_image",cake_image);
-                html = insertProperty(html,"cake_alt",cake_alt);
                 html = insertProperty(html, "cake_title",cake_title);
                 html = insertProperty(html,"cake_desc",cake_desc);
                 html = insertProperty(html,"cake_ingredients",cake_ingredients);
