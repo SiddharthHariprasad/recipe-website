@@ -1,5 +1,15 @@
 /* Custom CSS styling */
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 nav .badge {
     position: relative;
     top: 20px;
@@ -27,10 +37,3 @@ a {
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #aa6f94;
   }
-
-footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 100%;
-}
