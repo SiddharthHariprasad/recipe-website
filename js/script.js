@@ -172,7 +172,7 @@ $(document).ready(function(){
     }
     
     // Load curry Recipie
-	r.loadcurry = function (cID) {
+	r.loadCurry = function (cID) {
         // showLoading("#main-content");
         curryID = cID;
 		$ajaxUtils.sendGetRequest(currysUrl,buildAndShowSingleCurryHTML);
