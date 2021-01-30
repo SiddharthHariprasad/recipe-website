@@ -48,7 +48,7 @@ $(document).ready(function(){
     });
     
     // Load Cakes Index
-	r.loadCakes = function (loadID) {
+	r.loadCakes = function () {
 		// showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowCakesHTML);
     };
