@@ -224,7 +224,7 @@ $(document).ready(function(){
     // Load Rices Index
 	r.loadRicesIndex = function () {
 		// showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowCurryRicesHTML);
+		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowRicesHTML);
     };
 
     // Builds HTML for the Rices Index page based on the data from the server
