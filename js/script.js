@@ -28,11 +28,11 @@ $(document).ready(function(){
     };
 
     // Show loading icon inside element identified by 'selector'.
-  	// var showLoading = function (selector) {
-	//     var html = "<div class='text-center'>";
-	//     html += "<img src='images/ajax-loader.gif'></div>";
-	    // insertHtml(selector, html);
-    // };
+  	var showLoading = function (selector) {
+	    var html = "<div class='text-center'>";
+	    html += "<img src='images/ajax-loader.gif'></div>";
+	    insertHtml(selector, html);
+    };
       
     // Return substitute of '{{propName}}'
   	// with propValue in given 'string'
@@ -46,7 +46,7 @@ $(document).ready(function(){
 	document.addEventListener("DOMContentLoaded", function (event) {
 
 		// // On first load, show home view
-		// // showLoading("#main-content");
+		showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(
 			homeHtml, 
 			function (responseText) {
@@ -57,7 +57,7 @@ $(document).ready(function(){
     
     // Load Cakes Index
 	r.loadCakesIndex = function () {
-		// showLoading("#main-content");
+		showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowCakesHTML);
     };
 
@@ -96,7 +96,7 @@ $(document).ready(function(){
     
     // Load Cake Recipie
 	r.loadCake = function (cID) {
-        // showLoading("#main-content");
+        showLoading("#main-content");
         cakeID = cID;
 		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowSingleCakeHTML);
     };
@@ -140,7 +140,7 @@ $(document).ready(function(){
     
     // Load Currys Index
 	r.loadCurrysIndex = function () {
-		// showLoading("#main-content");
+		showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(currysUrl,buildAndShowCurrysHTML);
     };
 
@@ -179,7 +179,7 @@ $(document).ready(function(){
     
     // Load curry Recipie
 	r.loadCurry = function (cuID) {
-        // showLoading("#main-content");
+        showLoading("#main-content");
         curryID = cuID;
 		$ajaxUtils.sendGetRequest(currysUrl,buildAndShowSingleCurryHTML);
     };
@@ -223,7 +223,7 @@ $(document).ready(function(){
     
     // Load Rices Index
 	r.loadRicesIndex = function () {
-		// showLoading("#main-content");
+		showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowRicesHTML);
     };
 
@@ -262,7 +262,7 @@ $(document).ready(function(){
     
     // Load rice Recipie
 	r.loadRice = function (rID) {
-        // showLoading("#main-content");
+        showLoading("#main-content");
         riceID = rID;
 		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowSingleRiceHTML);
     };
@@ -306,7 +306,7 @@ $(document).ready(function(){
     
     // Load Desserts Index
 	r.loadDessertsIndex = function () {
-		// showLoading("#main-content");
+		showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(dessertsUrl,buildAndShowDessertsHTML);
     };
 
@@ -345,7 +345,7 @@ $(document).ready(function(){
     
     // Load Dessert Recipie
 	r.loadDessert = function (dID) {
-        // showLoading("#main-content");
+        showLoading("#main-content");
         dessertID = dID;
 		$ajaxUtils.sendGetRequest(dessertsUrl,buildAndShowSingleDessertHTML);
     };
