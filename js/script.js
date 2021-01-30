@@ -8,8 +8,8 @@ $(document).ready(function(){
     var r = {};
 
     var indexHtml = "index.html";
-    var homeHtml = "home.html";
-    var cakesHtml = "cakes.html";
+    var homeHtml = "snippets/home.html";
+    var cakesHtml = "snippets/cakes.html";
     var cakesUrl = "json/cakes.json";
 
     // Convenience function for inserting innerHTML for 'select'
