@@ -310,7 +310,7 @@ $(document).ready(function(){
 		$ajaxUtils.sendGetRequest(dessertsUrl,buildAndShowDessertsHTML);
     };
 
-    // Builds HTML for the Dessertss Index page based on the data from the server
+    // Builds HTML for the Desserts Index page based on the data from the server
 	function buildAndShowDessertsHTML(desserts) {
 		// Retrive Desserts Index Snippet
 		$ajaxUtils.sendGetRequest(
@@ -351,7 +351,7 @@ $(document).ready(function(){
     };
 
     // Builds HTML for the single Dessert page based on the data from the server
-	function buildAndShowSingleDessertHTML (Desserts) {
+	function buildAndShowSingleDessertHTML (desserts) {
 		// Retrive Articles Index Snippet
 		$ajaxUtils.sendGetRequest(
           singleDessertHtml,
