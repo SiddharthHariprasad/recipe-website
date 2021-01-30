@@ -116,7 +116,7 @@ $(document).ready(function(){
 		for (var i = 0; i < cakes.length; i++) {
             if(cakes[i].cake_id==cakeID){
                 // insert cakes values
-                var html = cakesHtml;
+                var html = singleCakeHtml;
                 var cake_id = cakes[i].cake_id;
                 // var cake_image = cakes[i].cakes_image;
                 var cake_alt = cakes[i].cake_alt;
