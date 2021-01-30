@@ -76,10 +76,10 @@ $(document).ready(function(){
             var cake_alt = cakes[i].cake_alt;
             var cake_title = cakes[i].cake_title;
             var cake_desc = cakes[i].cake_desc;
-			html = insertProperty(html,"cake_id", cake_id);
-			html = insertProperty(html,"cake_image", cake_image);
-            html = insertProperty(html,"cake_alt", cake_alt);
-            html = insertProperty(html, "cake_title", cake_title);
+			html = insertProperty(html,"cake_id",cake_id);
+			html = insertProperty(html,"cake_image",cake_image);
+            html = insertProperty(html,"cake_alt",cake_alt);
+            html = insertProperty(html, "cake_title",cake_title);
             html = insertProperty(html,"cake_desc",cake_desc);
 			finalHTML += html;
 		}
