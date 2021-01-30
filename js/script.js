@@ -86,7 +86,7 @@ $(document).ready(function(){
 		return finalHTML;
 	}
     
-
+    global.$r = r;
 
 
 })(window);
