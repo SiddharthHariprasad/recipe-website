@@ -36,7 +36,7 @@ $(document).ready(function(){
 	document.addEventListener("DOMContentLoaded", function (event) {
 
 		// On first load, show home view
-		showLoading("#main-content");
+		// showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(
 			cakesHtml, 
 			function (responseText) {
