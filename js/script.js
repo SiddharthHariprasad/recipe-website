@@ -43,12 +43,12 @@ $(document).ready(function(){
 		// 		document.querySelector("#main-content").innerHTML = responseText;
 		// 	},
         // false);
-        r.loadCakes();
+        // r.loadCakes();
     });
     
     // Load Cakes Index
 	r.loadCakes = function (loadID) {
-		showLoading("#main-content");
+		// showLoading("#main-content");
 		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowCakesHTML);
     };
 
