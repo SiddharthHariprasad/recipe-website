@@ -7,20 +7,26 @@ $(document).ready(function(){
 (function (global) {
     var r = {};
 
-    var homeHtml = "snippets/home.html";
-    var homeUrl = "json/home.json";
+    var categoryHtml = "snippets/category.html";
+    var categoryUrl = "json/categories.json";
     var breakfastsHtml = "snippets/breakfastsIndex.html";
     var breakfastsUrl = "json/breakfasts.json";
     var singleBreakfastHtml = "snippets/singleBreakfast.html";
     var currysHtml = "snippets/currysIndex.html";
     var currysUrl = "json/currys.json";
     var singleCurryHtml = "snippets/singleCurry.html";
-    var ricesHtml = "snippets/ricesIndex.html";
-    var ricesUrl = "json/rices.json";
-    var singleRiceHtml = "snippets/singleRice.html";
-    var dessertsHtml = "snippets/dessertsIndex.html";
-    var dessertsUrl = "json/desserts.json";
-    var singleDessertHtml = "snippets/singleDessert.html";
+    var upperisHtml = "snippets/upperisIndex.html";
+    var upperisUrl = "json/upperis.json";
+    var singleUpperiHtml = "snippets/singleUpperi.html";
+    var saucesHtml = "snippets/saucesIndex.html";
+    var saucesUrl = "json/sauces.json";
+    var singleSauceHtml = "snippets/singleSauce.html";
+    var picklesHtml = "snippets/picklesIndex.html";
+    var picklesUrl = "json/pickles.json";
+    var singlePickleHtml = "snippets/singlePickle.html";
+    var sweetsHtml = "snippets/sweetsIndex.html";
+    var sweetsUrl = "json/sweets.json";
+    var singleSweetHtml = "snippets/singleSweet.html";
 
     // Convenience function for inserting innerHTML for 'select'
   	var insertHtml = function (selector, html) {
@@ -46,26 +52,26 @@ $(document).ready(function(){
     // On page load (before images or CSS)
 	document.addEventListener("DOMContentLoaded", function (event) {
 
-		// On first load, show home view
-    // Load Home Page
+		// On first load, show category view
+    // Load Category Page
     showLoading("#main-content");
-    $ajaxUtils.sendGetRequest(homeUrl,buildAndShowHomeHTML);
+    $ajaxUtils.sendGetRequest(categoryUrl,buildAndShowCategoryHTML);
 
 
-    // Builds HTML for the Home page based on the data from the server
-	function buildAndShowHomeHTML(categories) {
-		// Retrive Home Snippet
+    // Builds HTML for the Category page based on the data from the server
+	function buildAndShowCategoryHTML(categories) {
+		// Retrive Category Snippet
 		$ajaxUtils.sendGetRequest(
-          homeHtml,
-          function (homeHtml) {
-            var homeViewHtml = buildHomeViewHtml(categories,homeHtml);
-            insertHtml("#main-content", homeViewHtml);
+          categoryHtml,
+          function (categoryHtml) {
+            var categoryViewHtml = buildCategoryViewHtml(categories,categoryHtml);
+            insertHtml("#main-content", categoryViewHtml);
           },
           false);
     }
     
-    // Using home data and snippets html build homme view HTML to be inserted into page
-	function buildHomeViewHtml(categories,homeHtml) {
+    // Using category data and snippets html build homme view HTML to be inserted into page
+	function buildCategoryViewHtml(categories,categoryHtml) {
         var finalHTML = "";
         finalHTML += "<h2>Categories</h2>";
         
@@ -73,7 +79,7 @@ $(document).ready(function(){
 		// Loop over categories
 		for (var i = 0; i < categories.length; i++) {
 			// insert categories values
-			var html = homeHtml;
+			var html = categoryHtml;
 			var category_id = categories[i].category_id;
             var category_title = categories[i].category_title;
             var category_desc = categories[i].category_desc;
@@ -98,10 +104,16 @@ $(document).ready(function(){
         $r.loadCurrysIndex();
         break;
       case '3':
-        $r.loadRicesIndex();
+        $r.loadUpperisIndex();
         break;
       case '4':
-        $r.loadDessertsIndex();
+        $r.loadSaucesIndex();
+        break;
+      case '5':
+        $r.loadPicklesIndex();
+        break;
+      case '6':
+        $r.loadSweetsIndex();
         break;
       default:
         break;
@@ -274,166 +286,335 @@ $(document).ready(function(){
 		return finalHTML;
     }
     
-    // Load Rices Index
-	r.loadRicesIndex = function () {
+    // Load Upperis Index
+	r.loadUpperisIndex = function () {
 		showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowRicesHTML);
+		$ajaxUtils.sendGetRequest(upperisUrl,buildAndShowUpperisHTML);
     };
 
-    // Builds HTML for the Rices Index page based on the data from the server
-	function buildAndShowRicesHTML(rices) {
-		// Retrive Rices Index Snippet
+    // Builds HTML for the Upperis Index page based on the data from the server
+	function buildAndShowUpperisHTML(upperis) {
+		// Retrive Upperis Index Snippet
 		$ajaxUtils.sendGetRequest(
-          ricesHtml,
-          function (ricesHtml) {
-            var ricesViewHtml = buildRicesViewHtml(rices,ricesHtml);
-            insertHtml("#main-content", ricesViewHtml);
+          upperisHtml,
+          function (upperisHtml) {
+            var upperisViewHtml = buildUpperisViewHtml(upperis,upperisHtml);
+            insertHtml("#main-content", upperisViewHtml);
           },
           false);
     }
     
-    // Using rices data and snippets html build rices view HTML to be inserted into page
-	function buildRicesViewHtml(rices,ricesHtml) {
+    // Using upperis data and snippets html build upperis view HTML to be inserted into page
+	function buildUpperisViewHtml(upperis,upperisHtml) {
         var finalHTML = "";
-        finalHTML += "<h2>Rices</h2>";
+        finalHTML += "<h2>Upperis</h2>";
         
 
-		// Loop over rices
-		for (var i = 0; i < rices.length; i++) {
-			// insert rices values
-			var html = ricesHtml;
-			var rice_id = rices[i].rice_id;
-            var rice_title = rices[i].rice_title;
-            var rice_desc = rices[i].rice_desc;
-			html = insertProperty(html,"rice_id",rice_id);
-            html = insertProperty(html, "rice_title",rice_title);
-            html = insertProperty(html,"rice_desc",rice_desc);
+		// Loop over upperis
+		for (var i = 0; i < upperis.length; i++) {
+			// insert upperis values
+			var html = upperisHtml;
+			var upperi_id = upperis[i].upperi_id;
+            var upperi_title = upperis[i].upperi_title;
+            var upperi_desc = upperis[i].upperi_desc;
+			html = insertProperty(html,"upperi_id",upperi_id);
+            html = insertProperty(html, "upperi_title",upperi_title);
+            html = insertProperty(html,"upperi_desc",upperi_desc);
 			finalHTML += html;
 		}
 		return finalHTML;
     }
     
-    // Load rice Recipie
-	r.loadRice = function (rID) {
+    // Load upperi Recipie
+	r.loadUpperi = function (uID) {
         showLoading("#main-content");
-        riceID = rID;
-		$ajaxUtils.sendGetRequest(ricesUrl,buildAndShowSingleRiceHTML);
+        upperiID = uID;
+		$ajaxUtils.sendGetRequest(upperisUrl,buildAndShowSingleUpperiHTML);
     };
 
-    // Builds HTML for the single Rice page based on the data from the server
-	function buildAndShowSingleRiceHTML (rices) {
+    // Builds HTML for the single Upperi page based on the data from the server
+	function buildAndShowSingleUpperiHTML (upperis) {
 		// Retrive Articles Index Snippet
 		$ajaxUtils.sendGetRequest(
-          singleRiceHtml,
-          function (singleRiceHtml) {
-            var singleRiceViewHtml = buildSingleRiceViewHtml(rices,singleRiceHtml);
-            insertHtml("#main-content", singleRiceViewHtml);
+          singleUpperiHtml,
+          function (singleUpperiHtml) {
+            var singleUpperiViewHtml = buildSingleUpperiViewHtml(upperis,singleUpperiHtml);
+            insertHtml("#main-content", singleUpperiViewHtml);
           },
           false);
     }
     
-    // Using single Rice data and snippets html build Rices view HTML to be inserted into page
-	function buildSingleRiceViewHtml(rices,singleRiceHtml) {
+    // Using single Upperi data and snippets html build Upperis view HTML to be inserted into page
+	function buildSingleUpperiViewHtml(upperis,singleUpperiHtml) {
         var finalHTML = "";
         
-		// Loop over Rices
-		for (var i = 0; i < rices.length; i++) {
-            if(rices[i].rice_id==riceID){
-                // insert rice values
-                var html = singleRiceHtml;
-                var rice_id = rices[i].rice_id;
-                var rice_title = rices[i].rice_title;
-                var rice_desc = rices[i].rice_desc;
-                var rice_ingredients = rices[i].rice_ingredients;
-                var rice_recipe = rices[i].rice_recipe;
-                html = insertProperty(html,"rice_id",rice_id);
-                html = insertProperty(html, "rice_title",rice_title);
-                html = insertProperty(html,"rice_desc",rice_desc);
-                html = insertProperty(html,"rice_ingredients",rice_ingredients);
-                html = insertProperty(html,"rice_recipe",rice_recipe);
+		// Loop over Upperis
+		for (var i = 0; i < upperis.length; i++) {
+            if(upperis[i].upperi_id==upperiID){
+                // insert upperi values
+                var html = singleUpperiHtml;
+                var upperi_id = upperis[i].upperi_id;
+                var upperi_title = upperis[i].upperi_title;
+                var upperi_desc = upperis[i].upperi_desc;
+                var upperi_ingredients = upperis[i].upperi_ingredients;
+                var upperi_recipe = upperis[i].upperi_recipe;
+                html = insertProperty(html,"upperi_id",upperi_id);
+                html = insertProperty(html, "upperi_title",upperi_title);
+                html = insertProperty(html,"upperi_desc",upperi_desc);
+                html = insertProperty(html,"upperi_ingredients",upperi_ingredients);
+                html = insertProperty(html,"upperi_recipe",upperi_recipe);
                 finalHTML += html;
             }
 		}
 		return finalHTML;
     }
     
-    // Load Desserts Index
-	r.loadDessertsIndex = function () {
+
+   // Load Sauces Index
+	r.loadSaucesIndex = function () {
 		showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(dessertsUrl,buildAndShowDessertsHTML);
+		$ajaxUtils.sendGetRequest(saucesUrl,buildAndShowSaucesHTML);
     };
 
-    // Builds HTML for the Desserts Index page based on the data from the server
-	function buildAndShowDessertsHTML(desserts) {
-		// Retrive Desserts Index Snippet
+    // Builds HTML for the Sauces Index page based on the data from the server
+	function buildAndShowSaucesHTML(sauces) {
+		// Retrive Sauces Index Snippet
 		$ajaxUtils.sendGetRequest(
-          dessertsHtml,
-          function (dessertsHtml) {
-            var dessertsViewHtml = buildDessertsViewHtml(desserts,dessertsHtml);
-            insertHtml("#main-content", dessertsViewHtml);
+          saucesHtml,
+          function (saucesHtml) {
+            var saucesViewHtml = buildSaucesViewHtml(sauces,saucesHtml);
+            insertHtml("#main-content", saucesViewHtml);
           },
           false);
     }
     
-    // Using desserts data and snippets html build desserts view HTML to be inserted into page
-	function buildDessertsViewHtml(desserts,dessertsHtml) {
+    // Using sauces data and snippets html build sauces view HTML to be inserted into page
+	function buildSaucesViewHtml(sauces,saucesHtml) {
         var finalHTML = "";
-        finalHTML += "<h2>Desserts</h2>";
+        finalHTML += "<h2>Sauces</h2>";
         
 
-		// Loop over desserts
-		for (var i = 0; i < desserts.length; i++) {
-			// insert desserts values
-			var html = dessertsHtml;
-			var dessert_id = desserts[i].dessert_id;
-            var dessert_title = desserts[i].dessert_title;
-            var dessert_desc = desserts[i].dessert_desc;
-			html = insertProperty(html,"dessert_id",dessert_id);
-            html = insertProperty(html, "dessert_title",dessert_title);
-            html = insertProperty(html,"dessert_desc",dessert_desc);
+		// Loop over sauces
+		for (var i = 0; i < sauces.length; i++) {
+			// insert sauces values
+			var html = saucesHtml;
+			var sauce_id = sauces[i].sauce_id;
+            var sauce_title = sauces[i].sauce_title;
+            var sauce_desc = sauces[i].sauce_desc;
+			html = insertProperty(html,"sauce_id",sauce_id);
+            html = insertProperty(html, "sauce_title",sauce_title);
+            html = insertProperty(html,"sauce_desc",sauce_desc);
 			finalHTML += html;
 		}
 		return finalHTML;
     }
     
-    // Load Dessert Recipie
-	r.loadDessert = function (dID) {
+    // Load Sauce Recipie
+	r.loadSauce = function (saID) {
         showLoading("#main-content");
-        dessertID = dID;
-		$ajaxUtils.sendGetRequest(dessertsUrl,buildAndShowSingleDessertHTML);
+        sauceID = saID;
+		$ajaxUtils.sendGetRequest(saucesUrl,buildAndShowSingleSauceHTML);
     };
 
-    // Builds HTML for the single Dessert page based on the data from the server
-	function buildAndShowSingleDessertHTML (desserts) {
-		// Retrive Articles Index Snippet
+    // Builds HTML for the single Sauce page based on the data from the server
+	function buildAndShowSingleSauceHTML (sauces) {
+		// Retrive Single sauce Snippet
 		$ajaxUtils.sendGetRequest(
-          singleDessertHtml,
-          function (singleDessertHtml) {
-            var singleDessertViewHtml = buildSingleDessertViewHtml(desserts,singleDessertHtml);
-            insertHtml("#main-content", singleDessertViewHtml);
+          singleSauceHtml,
+          function (singleSauceHtml) {
+            var singleSauceViewHtml = buildSingleSauceViewHtml(sauces,singleSauceHtml);
+            insertHtml("#main-content", singleSauceViewHtml);
           },
           false);
     }
     
-    // Using single Dessert data and snippets html build Desserts view HTML to be inserted into page
-	function buildSingleDessertViewHtml(desserts,singleDessertHtml) {
+    // Using single sauce data and snippets html build sauces view HTML to be inserted into page
+	function buildSingleSauceViewHtml(sauces,singleSauceHtml) {
         var finalHTML = "";
         
-		// Loop over Desserts
-		for (var i = 0; i < desserts.length; i++) {
-            if(desserts[i].dessert_id==dessertID){
-                // insert dessert values
-                var html = singleDessertHtml;
-                var dessert_id = desserts[i].dessert_id;
-                var dessert_title = desserts[i].dessert_title;
-                var dessert_desc = desserts[i].dessert_desc;
-                var dessert_ingredients = desserts[i].dessert_ingredients;
-                var dessert_recipe = desserts[i].dessert_recipe;
-                html = insertProperty(html,"dessert_id",dessert_id);
-                html = insertProperty(html, "dessert_title",dessert_title);
-                html = insertProperty(html,"dessert_desc",dessert_desc);
-                html = insertProperty(html,"dessert_ingredients",dessert_ingredients);
-                html = insertProperty(html,"dessert_recipe",dessert_recipe);
+		// Loop over sauces
+		for (var i = 0; i < sauces.length; i++) {
+            if(sauces[i].sauce_id==sauceID){
+                // insert sauce values
+                var html = singleSauceHtml;
+                var sauce_id = sauces[i].sauce_id;
+                var sauce_title = sauces[i].sauce_title;
+                var sauce_desc = sauces[i].sauce_desc;
+                var sauce_ingredients = sauces[i].sauce_ingredients;
+                var sauce_recipe = sauces[i].sauce_recipe;
+                html = insertProperty(html,"sauce_id",sauce_id);
+                html = insertProperty(html, "sauce_title",sauce_title);
+                html = insertProperty(html,"sauce_desc",sauce_desc);
+                html = insertProperty(html,"sauce_ingredients",sauce_ingredients);
+                html = insertProperty(html,"sauce_recipe",sauce_recipe);
+                finalHTML += html;
+            }
+		}
+		return finalHTML;
+    }
+
+
+ // Load Pickles Index
+ r.loadPicklesIndex = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(picklesUrl,buildAndShowPicklesHTML);
+  };
+
+  // Builds HTML for the Pickles Index page based on the data from the server
+function buildAndShowPicklesHTML(pickles) {
+  // Retrive Pickles Index Snippet
+  $ajaxUtils.sendGetRequest(
+        picklesHtml,
+        function (picklesHtml) {
+          var picklesViewHtml = buildPicklesViewHtml(pickles,picklesHtml);
+          insertHtml("#main-content", picklesViewHtml);
+        },
+        false);
+  }
+  
+  // Using pickles data and snippets html build pickles view HTML to be inserted into page
+function buildPicklesViewHtml(pickles,picklesHtml) {
+      var finalHTML = "";
+      finalHTML += "<h2>Pickles</h2>";
+      
+
+  // Loop over pickles
+  for (var i = 0; i < pickles.length; i++) {
+    // insert pickles values
+    var html = picklesHtml;
+    var pickle_id = pickles[i].pickle_id;
+          var pickle_title = pickles[i].pickle_title;
+          var pickle_desc = pickles[i].pickle_desc;
+    html = insertProperty(html,"pickle_id",pickle_id);
+          html = insertProperty(html, "pickle_title",pickle_title);
+          html = insertProperty(html,"pickle_desc",pickle_desc);
+    finalHTML += html;
+  }
+  return finalHTML;
+  }
+  
+  // Load Pickle Recipie
+r.loadPickle = function (pID) {
+      showLoading("#main-content");
+      pickleID = pID;
+  $ajaxUtils.sendGetRequest(picklesUrl,buildAndShowSinglePickleHTML);
+  };
+
+  // Builds HTML for the single Pickle page based on the data from the server
+function buildAndShowSinglePickleHTML (pickles) {
+  // Retrive Single pickle Snippet
+  $ajaxUtils.sendGetRequest(
+        singlePickleHtml,
+        function (singlePickleHtml) {
+          var singlePickleViewHtml = buildSinglePickleViewHtml(pickles,singlePickleHtml);
+          insertHtml("#main-content", singlePickleViewHtml);
+        },
+        false);
+  }
+  
+  // Using single pickle data and snippets html build pickles view HTML to be inserted into page
+function buildSinglePickleViewHtml(pickles,singlePickleHtml) {
+      var finalHTML = "";
+      
+  // Loop over pickles
+  for (var i = 0; i < pickles.length; i++) {
+          if(pickles[i].pickle_id==pickleID){
+              // insert pickle values
+              var html = singlePickleHtml;
+              var pickle_id = pickles[i].pickle_id;
+              var pickle_title = pickles[i].pickle_title;
+              var pickle_desc = pickles[i].pickle_desc;
+              var pickle_ingredients = pickles[i].pickle_ingredients;
+              var pickle_recipe = pickles[i].pickle_recipe;
+              html = insertProperty(html,"pickle_id",pickle_id);
+              html = insertProperty(html, "pickle_title",pickle_title);
+              html = insertProperty(html,"pickle_desc",pickle_desc);
+              html = insertProperty(html,"pickle_ingredients",pickle_ingredients);
+              html = insertProperty(html,"pickle_recipe",pickle_recipe);
+              finalHTML += html;
+          }
+  }
+  return finalHTML;
+  }
+
+
+    // Load Sweets Index
+	r.loadSweetsIndex = function () {
+		showLoading("#main-content");
+		$ajaxUtils.sendGetRequest(sweetsUrl,buildAndShowSweetsHTML);
+    };
+
+    // Builds HTML for the Sweets Index page based on the data from the server
+	function buildAndShowSweetsHTML(sweets) {
+		// Retrive Sweets Index Snippet
+		$ajaxUtils.sendGetRequest(
+          sweetsHtml,
+          function (sweetsHtml) {
+            var sweetsViewHtml = buildSweetsViewHtml(sweets,sweetsHtml);
+            insertHtml("#main-content", sweetsViewHtml);
+          },
+          false);
+    }
+    
+    // Using sweets data and snippets html build sweets view HTML to be inserted into page
+	function buildSweetsViewHtml(sweets,sweetsHtml) {
+        var finalHTML = "";
+        finalHTML += "<h2>Sweets</h2>";
+        
+
+		// Loop over sweets
+		for (var i = 0; i < sweets.length; i++) {
+			// insert sweets values
+			var html = sweetsHtml;
+			var sweet_id = sweets[i].sweet_id;
+            var sweet_title = sweets[i].sweet_title;
+            var sweet_desc = sweets[i].sweet_desc;
+			html = insertProperty(html,"sweet_id",sweet_id);
+            html = insertProperty(html, "sweet_title",sweet_title);
+            html = insertProperty(html,"sweet_desc",sweet_desc);
+			finalHTML += html;
+		}
+		return finalHTML;
+    }
+    
+    // Load Sweet Recipie
+	r.loadSweet = function (sID) {
+        showLoading("#main-content");
+        sweetID = sID;
+		$ajaxUtils.sendGetRequest(sweetsUrl,buildAndShowSingleSweetHTML);
+    };
+
+    // Builds HTML for the single Sweet page based on the data from the server
+	function buildAndShowSingleSweetHTML (sweets) {
+		// Retrive Articles Index Snippet
+		$ajaxUtils.sendGetRequest(
+          singleSweetHtml,
+          function (singleSweetHtml) {
+            var singleSweetViewHtml = buildSingleSweetViewHtml(sweets,singleSweetHtml);
+            insertHtml("#main-content", singleSweetViewHtml);
+          },
+          false);
+    }
+    
+    // Using single Sweet data and snippets html build Sweets view HTML to be inserted into page
+	function buildSingleSweetViewHtml(sweets,singleSweetHtml) {
+        var finalHTML = "";
+        
+		// Loop over Sweets
+		for (var i = 0; i < sweets.length; i++) {
+            if(sweets[i].sweet_id==sweetID){
+                // insert sweet values
+                var html = singleSweetHtml;
+                var sweet_id = sweets[i].sweet_id;
+                var sweet_title = sweets[i].sweet_title;
+                var sweet_desc = sweets[i].sweet_desc;
+                var sweet_ingredients = sweets[i].sweet_ingredients;
+                var sweet_recipe = sweets[i].sweet_recipe;
+                html = insertProperty(html,"sweet_id",sweet_id);
+                html = insertProperty(html, "sweet_title",sweet_title);
+                html = insertProperty(html,"sweet_desc",sweet_desc);
+                html = insertProperty(html,"sweet_ingredients",sweet_ingredients);
+                html = insertProperty(html,"sweet_recipe",sweet_recipe);
                 finalHTML += html;
             }
 		}
