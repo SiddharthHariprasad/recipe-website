@@ -8,9 +8,10 @@ $(document).ready(function(){
     var r = {};
 
     var homeHtml = "snippets/home.html";
-    var cakesHtml = "snippets/cakesIndex.html";
-    var cakesUrl = "json/cakes.json";
-    var singleCakeHtml = "snippets/singleCake.html";
+    var homeUrl = "json/home.json";
+    var breakfastsHtml = "snippets/breakfastsIndex.html";
+    var breakfastsUrl = "json/breakfasts.json";
+    var singleBreakfastHtml = "snippets/singleBreakfast.html";
     var currysHtml = "snippets/currysIndex.html";
     var currysUrl = "json/currys.json";
     var singleCurryHtml = "snippets/singleCurry.html";
@@ -45,93 +46,145 @@ $(document).ready(function(){
     // On page load (before images or CSS)
 	document.addEventListener("DOMContentLoaded", function (event) {
 
-		// // On first load, show home view
-		showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(
-			homeHtml, 
-			function (responseText) {
-				document.querySelector("#main-content").innerHTML = responseText;
-			},
-        false);
-    });
-    
-    // Load Cakes Index
-	r.loadCakesIndex = function () {
-		showLoading("#main-content");
-		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowCakesHTML);
-    };
+		// On first load, show home view
+    // Load Home Page
+    showLoading("#main-content");
+    $ajaxUtils.sendGetRequest(homeUrl,buildAndShowHomeHTML);
 
-    // Builds HTML for the Cakes Index page based on the data from the server
-	function buildAndShowCakesHTML(cakes) {
-		// Retrive Cakes Index Snippet
+
+    // Builds HTML for the Home page based on the data from the server
+	function buildAndShowHomeHTML(categories) {
+		// Retrive Home Snippet
 		$ajaxUtils.sendGetRequest(
-          cakesHtml,
-          function (cakesHtml) {
-            var cakesViewHtml = buildCakesViewHtml(cakes,cakesHtml);
-            insertHtml("#main-content", cakesViewHtml);
+          homeHtml,
+          function (homeHtml) {
+            var homeViewHtml = buildHomeViewHtml(categories,homeHtml);
+            insertHtml("#main-content", homeViewHtml);
           },
           false);
     }
     
-    // Using cakes data and snippets html build cakes view HTML to be inserted into page
-	function buildCakesViewHtml(cakes,cakesHtml) {
+    // Using home data and snippets html build homme view HTML to be inserted into page
+	function buildHomeViewHtml(categories,homeHtml) {
         var finalHTML = "";
-        finalHTML += "<h2>Cakes</h2>";
+        finalHTML += "<h2>Categories</h2>";
         
 
-		// Loop over cakes
-		for (var i = 0; i < cakes.length; i++) {
-			// insert cakes values
-			var html = cakesHtml;
-			var cake_id = cakes[i].cake_id;
-            var cake_title = cakes[i].cake_title;
-            var cake_desc = cakes[i].cake_desc;
-			html = insertProperty(html,"cake_id",cake_id);
-            html = insertProperty(html, "cake_title",cake_title);
-            html = insertProperty(html,"cake_desc",cake_desc);
+		// Loop over categories
+		for (var i = 0; i < categories.length; i++) {
+			// insert categories values
+			var html = homeHtml;
+			var category_id = categories[i].category_id;
+            var category_title = categories[i].category_title;
+            var category_desc = categories[i].category_desc;
+			html = insertProperty(html,"category_id",category_id);
+            html = insertProperty(html, "category_title",category_title);
+            html = insertProperty(html,"category_desc",category_desc);
+			finalHTML += html;
+		}
+		return finalHTML;
+    }
+  });
+
+  // Load Category
+  r.loadCategory = function(catID) {
+    // showLoading("#main-content");
+    switch (catID) {
+      case '1':
+        console.log("in case 1");
+        $r.loadBreakfastsIndex();
+        break;
+      case '2':
+        $r.loadCurrysIndex();
+        break;
+      case '3':
+        $r.loadRicesIndex();
+        break;
+      case '4':
+        $r.loadDessertsIndex();
+        break;
+      default:
+        break;
+    }
+  };
+    
+    // Load Breakfasts Index
+	r.loadBreakfastsIndex = function () {
+		showLoading("#main-content");
+		$ajaxUtils.sendGetRequest(breakfastsUrl,buildAndShowBreakfastsHTML);
+    };
+
+    // Builds HTML for the Breakfasts Index page based on the data from the server
+	function buildAndShowBreakfastsHTML(breakfasts) {
+		// Retrive Breakfasts Index Snippet
+		$ajaxUtils.sendGetRequest(
+          breakfastsHtml,
+          function (breakfastsHtml) {
+            var breakfastsViewHtml = buildBreakfastsViewHtml(breakfasts,breakfastsHtml);
+            insertHtml("#main-content", breakfastsViewHtml);
+          },
+          false);
+    }
+    
+    // Using breakfasts data and snippets html build breakfasts view HTML to be inserted into page
+	function buildBreakfastsViewHtml(breakfasts,breakfastsHtml) {
+        var finalHTML = "";
+        finalHTML += "<h2>Breakfasts</h2>";
+        
+
+		// Loop over breakfasts
+		for (var i = 0; i < breakfasts.length; i++) {
+			// insert breakfasts values
+			var html = breakfastsHtml;
+			var breakfast_id = breakfasts[i].breakfast_id;
+            var breakfast_title = breakfasts[i].breakfast_title;
+            var breakfast_desc = breakfasts[i].breakfast_desc;
+			html = insertProperty(html,"breakfast_id",breakfast_id);
+            html = insertProperty(html, "breakfast_title",breakfast_title);
+            html = insertProperty(html,"breakfast_desc",breakfast_desc);
 			finalHTML += html;
 		}
 		return finalHTML;
     }
     
-    // Load Cake Recipie
-	r.loadCake = function (cID) {
+    // Load Breakfast Recipie
+	r.loadBreakfast = function (bID) {
         showLoading("#main-content");
-        cakeID = cID;
-		$ajaxUtils.sendGetRequest(cakesUrl,buildAndShowSingleCakeHTML);
+        breakfastID = bID;
+		$ajaxUtils.sendGetRequest(breakfastsUrl,buildAndShowSingleBreakfastHTML);
     };
 
-    // Builds HTML for the single Cake page based on the data from the server
-	function buildAndShowSingleCakeHTML (cakes) {
-		// Retrive Single Cake Snippet
+    // Builds HTML for the single Breakfast page based on the data from the server
+	function buildAndShowSingleBreakfastHTML (breakfasts) {
+		// Retrive Single breakfast Snippet
 		$ajaxUtils.sendGetRequest(
-          singleCakeHtml,
-          function (singleCakeHtml) {
-            var singleCakeViewHtml = buildSingleCakeViewHtml(cakes,singleCakeHtml);
-            insertHtml("#main-content", singleCakeViewHtml);
+          singleBreakfastHtml,
+          function (singleBreakfastHtml) {
+            var singleBreakfastViewHtml = buildSingleBreakfastViewHtml(breakfasts,singleBreakfastHtml);
+            insertHtml("#main-content", singleBreakfastViewHtml);
           },
           false);
     }
     
-    // Using single cake data and snippets html build cakes view HTML to be inserted into page
-	function buildSingleCakeViewHtml(cakes,singleCakeHtml) {
+    // Using single breakfast data and snippets html build breakfasts view HTML to be inserted into page
+	function buildSingleBreakfastViewHtml(breakfasts,singleBreakfastHtml) {
         var finalHTML = "";
         
-		// Loop over cakes
-		for (var i = 0; i < cakes.length; i++) {
-            if(cakes[i].cake_id==cakeID){
-                // insert cake values
-                var html = singleCakeHtml;
-                var cake_id = cakes[i].cake_id;
-                var cake_title = cakes[i].cake_title;
-                var cake_desc = cakes[i].cake_desc;
-                var cake_ingredients = cakes[i].cake_ingredients;
-                var cake_recipe = cakes[i].cake_recipe;
-                html = insertProperty(html,"cake_id",cake_id);
-                html = insertProperty(html, "cake_title",cake_title);
-                html = insertProperty(html,"cake_desc",cake_desc);
-                html = insertProperty(html,"cake_ingredients",cake_ingredients);
-                html = insertProperty(html,"cake_recipe",cake_recipe);
+		// Loop over breakfasts
+		for (var i = 0; i < breakfasts.length; i++) {
+            if(breakfasts[i].breakfast_id==breakfastID){
+                // insert breakfast values
+                var html = singleBreakfastHtml;
+                var breakfast_id = breakfasts[i].breakfast_id;
+                var breakfast_title = breakfasts[i].breakfast_title;
+                var breakfast_desc = breakfasts[i].breakfast_desc;
+                var breakfast_ingredients = breakfasts[i].breakfast_ingredients;
+                var breakfast_recipe = breakfasts[i].breakfast_recipe;
+                html = insertProperty(html,"breakfast_id",breakfast_id);
+                html = insertProperty(html, "breakfast_title",breakfast_title);
+                html = insertProperty(html,"breakfast_desc",breakfast_desc);
+                html = insertProperty(html,"breakfast_ingredients",breakfast_ingredients);
+                html = insertProperty(html,"breakfast_recipe",breakfast_recipe);
                 finalHTML += html;
             }
 		}

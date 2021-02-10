@@ -1,51 +1,11 @@
 <div class="col s12 l6">
     <div class="card pink lighten-3">
         <div class="card-content">
-            <span class="card-title">Cakes</span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nisi numquam earum perferendis, est exercitationem 
-				libero fugiat, pariatur non ratione enim aut vero error totam facere eum explicabo aliquam itaque!</p>
+            <span class="card-title">{{category_title}}s</span>
+            <p>{{category_desc}}</p>
         </div>
         <div class="card-action">
-            <a href="#" onclick="$r.loadCakesIndex();">View Cake Recipes</a>
-        </div>
-    </div>
-</div>
-
-<div class="col s12 l6">
-    <div class="card pink lighten-3">
-        <div class="card-content">
-            <span class="card-title">Currys</span>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, molestiae modi aut adipisci ut vitae fugit rem, 
-				ipsam earum nihil similique. Quos quia aliquid rem temporibus accusamus aliquam optio dolor.</p>
-        </div>
-        <div class="card-action">
-            <a href="#" onclick="$r.loadCurrysIndex();">View Curry Recipes</a>
-        </div>
-    </div>
-</div>
-
-<div class="col s12 l6">
-    <div class="card pink lighten-3">
-        <div class="card-content">
-            <span class="card-title">Rices</span>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quidem sequi. Optio vero ratione officiis tempora 
-				rem, numquam quisquam exercitationem ex repellat aliquid beatae? Iste itaque dolorum doloremque distinctio quod.</p>
-        </div>
-        <div class="card-action">
-            <a href="#" onclick="$r.loadRicesIndex();">View Cake Recipes</a>
-        </div>
-    </div>
-</div>
-
-<div class="col s12 l6">
-    <div class="card pink lighten-3">
-        <div class="card-content">
-            <span class="card-title">Desserts</span>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta laudantium ex cumque ratione iste adipisci laboriosam! 
-				Voluptate temporibus praesentium, numquam aliquam autem voluptas quae fuga eligendi corrupti ea, voluptatibus sit.</p>
-        </div>
-        <div class="card-action">
-            <a href="#" onclick="$r.loadDessertsIndex();">View Curry Recipes</a>
+            <a href="#" onclick="$r.loadCategory('{{category_id}}');">View {{category_title}} Recipes</a>
         </div>
     </div>
 </div>
