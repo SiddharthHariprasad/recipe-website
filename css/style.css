@@ -36,4 +36,10 @@ a {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #aa6f94;
-  }
+}
+
+@media (max-width: 600px) {
+    nav .brand-logo {
+        font-size: large;
+    }
+}
